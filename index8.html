@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=420, height=915, initial-scale=1.0">
+  <title>Payment Successful</title>
+  <link rel="stylesheet" href="style8.css">
+</head>
+<body>
+    <div class="container">
+  <div class="success-screen">
+    <!-- White Circle with Tick -->
+    <div class="check-circle">
+      <span class="checkmark">✔</span>
+    </div>
+
+    <!-- Text Section -->
+    <div class="text">
+      <h2>Payment Successful</h2>
+      <p id="date-time"></p>
+    </div>
+
+    <!-- Optional Back Button -->
+    <button class="home-btn" onclick="window.location.href='index9.html'">
+      Back to Ticket Page
+    </button>
+  </div>
+  </div>
+
+  <script>
+   
+    const successSound = new Audio("success.mp3");
+    successSound.play();
+
+    const dateTimeElem = document.getElementById("date-time");
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = now.toLocaleDateString('en-IN', options);
+    const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+    dateTimeElem.innerText = `${formattedDate} at ${formattedTime}`;
+  </script>
+</body>
+</html>

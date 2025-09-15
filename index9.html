@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DTC Daily Pass</title>
+  <link rel="stylesheet" href="style9.css" />
+</head>
+<body>
+  <div class="app-bg">
+    <!-- Yellow warning bar -->
+    <div class="warning-bar">
+      ⚠ Issue another ticket / QR pass
+    </div>
+
+    <!-- Ticket Card -->
+    <div class="ticket-card">
+      <div class="ticket-body">
+        <div class="dept">Transport Dept. of Delhi</div>
+        <div class="title">DAILY ALL ROUTE AC PASS₹50.50</div>
+
+        <div class="row">
+          <div>
+            <div class="label">Passenger Name</div>
+            <div class="value">Manish Kumar Yadav</div>
+          </div>
+          <div class="fare">Fare<br><span>₹50.0</span></div>
+        </div>
+
+        <div class="row">
+          <div>
+            <div class="label">Passenger Age</div>
+            <div class="value">19</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <div class="label">Booking Time</div>
+            <div class="value" id="booking-time"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <div class="label">Validity Time</div>
+            <div class="value" id="validity-time"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="id" id="ticket-id"></div>
+        </div>
+
+        <button class="qr-btn" onclick="showQR()">Show QR code</button>
+      </div>
+
+      <div class="ticket-footer">
+        <span>ONDC NETWORK</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Modal -->
+  <div class="qr-modal" id="qr-modal">
+    <div class="qr-box">
+      <span class="close-btn" onclick="closeQR()">×</span>
+      <img id="qr-image" alt="QR Code">
+    </div>
+  </div>
+
+  <!-- JavaScript inline -->
+  <script>
+    function formatDate(date) {
+      const options = { day: "2-digit", month: "short", year: "2-digit" };
+      return date.toLocaleDateString("en-GB", options).replace(",", "");
+    }
+
+    const today = new Date();
+    const formattedDate = formatDate(today);
+
+    document.getElementById("booking-time").textContent = `${formattedDate} 07:20 AM`;
+    document.getElementById("validity-time").textContent = `${formattedDate} 11:59 PM`;
+
+    // Random ticket ID
+    function randomID() {
+      return "DP" + today.getDate().toString().padStart(2, "0") +
+             (today.getMonth()+1).toString().padStart(2, "0") +
+             today.getFullYear().toString().slice(-2) +
+             Math.random().toString(36).substring(2, 8);
+    }
+    document.getElementById("ticket-id").textContent = randomID();
+
+    // QR Modal
+    function showQR() {
+      const qrData = randomID();
+      const qrImg = document.getElementById("qr-image");
+      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
+      document.getElementById("qr-modal").style.display = "flex";
+    }
+
+    function closeQR() {
+      document.getElementById("qr-modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+.body {
+  margin: 0px;
+
+  background-color: #ffffff;
+  height: 915px;
+  width: 420px;
+}
+a{
+    text-decoration:none;
+}
+p {
+  margin: 5px;
+}
+i {
+  font-size: xx-large;
+  color: rgb(53, 52, 52);
+}
+.nav_container_of_ticket_details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#Ticket_details {
+  font-size: 20px;
+  font-weight: 900;
+}
+.timer {
+  background-color: #26c6da;
+  color: #ffffff;
+  border-radius: 20px;
+  height: 25px;
+  width: 70px;
+  text-align: center;
+  font-size: 20px;
+}
+.container {
+  margin-top: 70px;
+  height: 355px;
+  background-color: rgb(250, 247, 247);
+  width: 345px;
+  position:relative;
+  right:17px;
+  margin-left: 25px;
+  
+  border:0.01px solid grey;
+  border-radius:15px;
+  
+}
+.container1 {
+  margin-left: 15px;
+
+  width: 345px;
+  height: 305px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#edit_icon1 {
+  font-size: 15px;
+  position: relative;
+  top: 20px;
+  right: 25px;
+}
+#bus_icon {
+  color: #ffffff;
+  background-color: blue;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  font-size: 25px;
+  margin: 20px;
+}
+.line {
+  height: 1px;
+  background-color: rgb(47, 46, 46);
+  position: relative;
+  bottom: 220px;
+  width: 300px;
+  left: 32px;
+  opacity: 70%;
+}
+
+.circle_point {
+  height: 10px;
+  width: 10px;
+  border: 5px solid black;
+  border-radius: 50%;
+  opacity: 50%;
+  position: relative;
+  bottom: 200px;
+  left: 50px;
+}
+.start {
+  width: 200px;
+  position: relative;
+  bottom: 230px;
+  left: 80px;
+}
+#stop_name {
+  font-weight: 900;
+}
+#destiny {
+  font-weight: 900;
+}
+.end {
+  width: 250px;
+  position: relative;
+  bottom: 230px;
+  left: 80px;
+}
+
+.pencil_icon {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 369px;
+  left: 250px;
+  width: 10px;
+  margin: 20px;
+  font-size: 15px;
+}
+#edit_icon {
+  font-size: 15px;
+  margin: 20px;
+}
+.details {
+  height: 100px;
+  position: relative;
+  top: 20px;
+  margin-left: -40px;
+}
+#bus_number {
+  font-size: larger;
+  font-weight: 900;
+}
+#towards_stop {
+  color: black;
+  opacity: 90%;
+}
+.line2 {
+  padding: 5px;
+  width: 30px;
+  border-top: 5px dotted black;
+  rotate: 90deg;
+  position: relative;
+  bottom: 145px;
+  left: 35px;
+}
+.number_of_ticket {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  bottom: 270px;
+}
+#tickets {
+  font-weight: 900;
+   position:relative;
+  bottom:45px;
+  top:-30px;
+  font-size:20px
+}
+.counting {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  left: 5px;
+  top:20px;
+}
+.dotted_line {
+  border-top: 5px dotted grey;
+  width: 300px;
+  padding: 5px;
+  position: relative;
+  bottom: 380px;
+  opacity:30%
+}
+.dotted_circle1 {
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  right: 30px;
+  bottom:30px;
+  border-right:1px solid grey;
+}
+.dotted_circle2 {
+  height: 50px;
+  width: 50px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  left: 20px;
+  bottom:30px;
+   border-left:1px solid grey;
+}
+.dotted_container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 390px;
+}
+#number {
+  font-weight: 900;
+  background-color: #ffffff;
+  height: 30px;
+  width: 25px;
+  line-height:30px;
+  text-align:center;
+  border-radius: 4px;
+  position:relative;
+  bottom:55px;
+}
+#increase {
+  background-color: #ffffff;
+  height: 20px;
+  width: 15px;
+  text-align: center;
+  border-radius: 4px;
+  position:relative;
+  bottom:50px;
+}
+#decrease {
+  background-color: #ffffff;
+  height: 20px;
+  width: 15px;
+  text-align: center;
+  border-radius: 4px;
+   position:relative;
+  bottom:50px;
+}
+.fare{
+    display:flex;
+    align-items:center;
+    position:relative;
+    top:10px;
+    font-weight:900;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:25px;
+
+}
+#info{
+    font-size:20px;
+    color:grey
+    
+}
+.coupon{
+    
+    color:#cf6c0f;
+    font-weight:900;
+    font-size:19px;
+    position:relative;
+    top:10px;
+
+
+
+}
+.last_container{
+    background-color: rgb(250, 247, 247);
+     position:relative;
+    bottom:340px;
+    height:100px;
+    width:345px;
+    border-radius:15px;
+    border:0.01px solid grey;
+    
+}
+.amount{
+    position:relative;
+    bottom:40px;
+    font-size:28px;
+    left:250px;
+    font-weight:900;
+    width:100px;
+}
+#pay{
+    background-color: #26C6DA;
+    width:345px;
+    font-weight:900px;
+    font-size:20px;
+    height:45px;
+    text-align: center;
+    line-height: 45px;
+    color:#ffffff;
+    position:relative;
+    top:90px;
+    right:5px;
+    border-radius: 10px;
+}
