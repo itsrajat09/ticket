@@ -1,5 +1,6 @@
 body {
   background-color: #f5f7fa;
+  max-width:410px;
 }
 
 .nav_container {
@@ -8,7 +9,8 @@ body {
   align-items: center;
   background-color: #ffffff;
   height: 80px;
-  width:  420px;
+  width:  390px;
+  border-radius:20px;
 }
 .hide {
   background-color: #ffffff;
@@ -119,24 +121,24 @@ body {
   bottom: 134px;
 }
 .img1 {
-  height: 50px;
+  height: 40px;
   position: relative;
   right: 0px;
 }
 .img2 {
-  height: 50px;
+  height: 40px;
   position: relative;
-  left: 13px;
+  left: 2cqmax;
 }
 .img3 {
-  height: 50px;
-  position: relative;
-  left: 10px;
+  height: 40px;
+  position:relative;
+  left: 40px;
 }
 .img4 {
-  height: 50px;
+  height: 40px;
   position: relative;
-  left: 16px;
+  left: 49px;
 }
 .img5 {
   height: 10px;

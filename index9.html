@@ -1,106 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DTC Daily Pass</title>
-  <link rel="stylesheet" href="style9.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Details</title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <link rel="stylesheet" href="style9.css">
 </head>
 <body>
-  <div class="app-bg">
-    <!-- Yellow warning bar -->
-    <div class="warning-bar">
-      ⚠ Issue another ticket / QR pass
+  <div class="phone">
+    <div class="top-bar">
+      <a href="index8.html"><i class="fa-solid fa-arrow-left"></i></a>
+      <span id="ticket-details"> Ticket details</span>
+      <span id="supportBtn">Support</span>
     </div>
 
-    <!-- Ticket Card -->
-    <div class="ticket-card">
-      <div class="ticket-body">
-        <div class="dept">Transport Dept. of Delhi</div>
-        <div class="title">DAILY ALL ROUTE AC PASS₹50.50</div>
+    <div class="card">
+      <div class="title">Transport Dept. of Delhi</div>
 
-        <div class="row">
-          <div>
-            <div class="label">Passenger Name</div>
-            <div class="value">Manish Kumar Yadav</div>
-          </div>
-          <div class="fare">Fare<br><span>₹50.0</span></div>
-        </div>
-
-        <div class="row">
-          <div>
-            <div class="label">Passenger Age</div>
-            <div class="value">19</div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <div class="label">Booking Time</div>
-            <div class="value" id="booking-time"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <div class="label">Validity Time</div>
-            <div class="value" id="validity-time"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="id" id="ticket-id"></div>
-        </div>
-
-        <button class="qr-btn" onclick="showQR()">Show QR code</button>
+      <div class="row">
+        <span id="ticketCode" class="bold">DL1PD2306</span>
+        <span id="fare" class="bold">₹ 22.79</span>
       </div>
 
-      <div class="ticket-footer">
-        <span>ONDC NETWORK</span>
+      <div class="row">
+        <span>
+          <span class="label">Bus route</span><br>
+          <span id="busRoute" class="bold">567DOWN</span>
+        </span>
+        <span>
+          <span class="label">Fare</span><br>
+          <span id="fare2">₹ 25.0</span>
+        </span>
       </div>
+
+      <div class="row">
+        <span>
+          <span class="label">Booking time</span><br>
+          <span id="bookingTime" class="bold"></span>
+        </span>
+        <span>
+          <span class="label">Bus tickets</span><br>
+          1
+        </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row">
+        <span class="label">Starting bus stop</span>
+      </div>
+      <div class="row bold" id="startStop">
+        Qamruddin Nagar Terminal
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <span class="label">Ending bus stop</span>
+      </div>
+      <div class="row bold" id="endStop">
+        Sarai Kale Khan ISBT Terminal
+      </div>
+
+      <div class="row" style="margin-top:15px; font-size:13px;" id="ticketId">
+        T26062023eaa8836087
+      </div>
+
+      <button class="qr-btn" onclick="showQR()">Show QR Code</button>
+    </div>
+
+    <div class="bottom-note">
+      Terms of Use &nbsp;•&nbsp; Click to read the terms and conditions for this ticket.
     </div>
   </div>
 
-  <!-- QR Modal -->
-  <div class="qr-modal" id="qr-modal">
-    <div class="qr-box">
-      <span class="close-btn" onclick="closeQR()">×</span>
-      <img id="qr-image" alt="QR Code">
+  <!-- QR Popup -->
+  <div id="qrPopup" class="qr-popup">
+    <div class="qr-content">
+      <div id="qrcode"></div>
+      <button onclick="closeQR()" class="close-btn">Close</button>
     </div>
   </div>
 
-  <!-- JavaScript inline -->
+  <!-- Edit Popup -->
+  <div id="editPopup" class="qr-popup">
+    <div class="qr-content">
+      <h3>Edit Ticket Details</h3>
+      <input type="text" id="editStart" placeholder="Starting bus stop" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editEnd" placeholder="Ending bus stop" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editTicketCode" placeholder="Ticket code" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editBusRoute" placeholder="Bus route" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editFare" placeholder="Fare" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editFare2" placeholder="Secondary Fare" style="width:100%;margin-bottom:10px;">
+      <input type="text" id="editTicketId" placeholder="Ticket ID" style="width:100%;margin-bottom:10px;">
+      <button onclick="saveEdit()" class="close-btn" style="background:#00b15c;">Save</button>
+      <button onclick="closeEdit()" class="close-btn" style="background:#888;margin-top:8px;">Cancel</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
   <script>
-    function formatDate(date) {
-      const options = { day: "2-digit", month: "short", year: "2-digit" };
-      return date.toLocaleDateString("en-GB", options).replace(",", "");
+    // Show formatted current date & time
+    function formatDateTime() {
+      const now = new Date();
+      const options = { weekday: 'short', day: '2-digit', month: 'short', year: '2-digit' };
+      const datePart = now.toLocaleDateString('en-US', options).replace(',', '');
+      let hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      return `${datePart} · ${hours}:${minutes} ${ampm}`;
     }
+    document.getElementById('bookingTime').textContent = formatDateTime();
 
-    const today = new Date();
-    const formattedDate = formatDate(today);
-
-    document.getElementById("booking-time").textContent = `${formattedDate} 07:20 AM`;
-    document.getElementById("validity-time").textContent = `${formattedDate} 11:59 PM`;
-
-    // Random ticket ID
-    function randomID() {
-      return "DP" + today.getDate().toString().padStart(2, "0") +
-             (today.getMonth()+1).toString().padStart(2, "0") +
-             today.getFullYear().toString().slice(-2) +
-             Math.random().toString(36).substring(2, 8);
-    }
-    document.getElementById("ticket-id").textContent = randomID();
-
-    // QR Modal
+    // QR Logic
     function showQR() {
-      const qrData = randomID();
-      const qrImg = document.getElementById("qr-image");
-      qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrData}`;
-      document.getElementById("qr-modal").style.display = "flex";
+      const ticketId = document.getElementById('ticketId').textContent.trim();
+      document.getElementById('qrPopup').style.display = 'flex';
+      document.getElementById('qrcode').innerHTML = ""; 
+      new QRCode(document.getElementById('qrcode'), {
+        text: ticketId,
+        width: 180,
+        height: 180
+      });
+    }
+    function closeQR() {
+      document.getElementById('qrPopup').style.display = 'none';
     }
 
-    function closeQR() {
-      document.getElementById("qr-modal").style.display = "none";
+    // Edit Logic
+    document.getElementById('supportBtn').addEventListener('click', openEdit);
+
+    function openEdit() {
+      document.getElementById('editStart').value = document.getElementById('startStop').textContent.trim();
+      document.getElementById('editEnd').value = document.getElementById('endStop').textContent.trim();
+      document.getElementById('editTicketCode').value = document.getElementById('ticketCode').textContent.trim();
+      document.getElementById('editBusRoute').value = document.getElementById('busRoute').textContent.trim();
+      document.getElementById('editFare').value = document.getElementById('fare').textContent.trim();
+      document.getElementById('editFare2').value = document.getElementById('fare2').textContent.trim();
+      document.getElementById('editTicketId').value = document.getElementById('ticketId').textContent.trim();
+      document.getElementById('editPopup').style.display = 'flex';
+    }
+
+    function closeEdit() {
+      document.getElementById('editPopup').style.display = 'none';
+    }
+
+    function saveEdit() {
+      document.getElementById('startStop').textContent = document.getElementById('editStart').value;
+      document.getElementById('endStop').textContent = document.getElementById('editEnd').value;
+      document.getElementById('ticketCode').textContent = document.getElementById('editTicketCode').value;
+      document.getElementById('busRoute').textContent = document.getElementById('editBusRoute').value;
+      document.getElementById('fare').textContent = document.getElementById('editFare').value;
+      document.getElementById('fare2').textContent = document.getElementById('editFare2').value;
+      document.getElementById('ticketId').textContent = document.getElementById('editTicketId').value;
+      closeEdit();
     }
   </script>
 </body>
