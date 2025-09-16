@@ -71,12 +71,20 @@
         T26062023eaa8836087
       </div>
 
-      <button class="qr-btn" onclick="showQR()">Show QR Code</button>
+      <button class="qr-btn" onclick="showQR()">
+        <img id="green_qr" src="https://png.pngtree.com/png-vector/20231014/ourmid/pngtree-green-qr-code-scanning-png-image_10286449.png">
+        <p>Show QR Code</p></button>
+        <div class="logo_container">
+    <img id="dtc_logo" src="https://upload.wikimedia.org/wikipedia/en/f/fb/Delhi_Transport_Corporation_logo.png">
+    <p id="ondc">ONDC</p>
+    <p id="network">NETWORK</p>
+  </div>
     </div>
 
     <div class="bottom-note">
       Terms of Use &nbsp;•&nbsp; Click to read the terms and conditions for this ticket.
     </div>
+    
   </div>
 
   <!-- QR Popup -->
@@ -102,7 +110,7 @@
       <button onclick="closeEdit()" class="close-btn" style="background:#888;margin-top:8px;">Cancel</button>
     </div>
   </div>
-
+  
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 
   <script>
