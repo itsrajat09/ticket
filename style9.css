@@ -18,8 +18,7 @@ i{
   
   background: #f36f3f;
   
-  position: relative;
-  top:49px;
+  
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
@@ -31,6 +30,9 @@ i{
   align-items: center;
   padding: 14px 16px;
   font-size: 16px;
+  position:relative;
+  top:80px;
+
   
 }
 #ticket-details{
@@ -43,6 +45,8 @@ i{
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 20px;
+  position:relative;
+  top:130px;
   
 }
 
