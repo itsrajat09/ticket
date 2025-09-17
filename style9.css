@@ -49,7 +49,11 @@ i{
   top:130px;
   
 }
-
+#ticketId{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 .title {
   text-align: center;
   font-weight: 600;
